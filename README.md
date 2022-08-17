@@ -1,2 +1,2 @@
-# testing_c_cpp_files;
-testing_git/github;
+#testing_primary_functions_of_github/git
+printf("Hello world..\n");
