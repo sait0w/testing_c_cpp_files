@@ -8,6 +8,7 @@ int main(){
  scanf("%d", &lim);
   for(np=1;np<=lim;np++){
     aux = 0;
+    cont = 1;
     for(cont=1;cont<=np;cont++){
      if(np%cont == 0){
       aux++; //aux == 1;
