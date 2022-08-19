@@ -3,7 +3,7 @@
 #include <new>
 #include <string>
 #include <stdlib.h>
-#define TAM 10
+#define TAM 9
  
 using namespace std; //para utilizar cout
  
@@ -43,9 +43,20 @@ int busca_simples(int vetor[TAM], int valorProcurado, int *posicaoEncontrada,int
 
 }
  
+int busca_binaria(int vetor[TAM], int valorProcurado, int *posicaoEncontrada){
+//Definir os limites na direita e na esquerda.
+ int esquerda = 0, direita = TAM-1, meio = (esquerda + direita)/2;
+  ; //Meio é onde fica o cursor.
+  if(vetor[meio] == valorProcurado){
+    *posicaoEncontrada = meio;
+    return 1;
+    }
+  return -1;
+}
+
 int main(){
  
-    int vetor[TAM] = {1,23,44,56,63,72,84,90,98};
+    int vetor[TAM] = {1,23,44,56,63,72,90,98};
     int valorProcurado;
     int posicao, posicaoEncontrada;
     int i;
@@ -59,13 +70,10 @@ int main(){
     printf("Qual numero deseja encontrar?");
     scanf("%d", &valorProcurado);
  
-    if(busca_simples(vetor, valorProcurado, &posicaoEncontrada, i) == 1){
+    if(busca_binaria(vetor, valorProcurado, &posicaoEncontrada) == 1){
         cout << "O valor foi encontrado na posicao:\n" << posicaoEncontrada;
     }else{
         cout << "Valor nao encontrado\n";
-    }
-    for(i=1;i<TAM;i++){
-     printf("Vetor[%d] = %d\n", i, vetor[i]);
     }
  
     return 0;

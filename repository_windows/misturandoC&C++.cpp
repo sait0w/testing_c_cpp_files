@@ -17,7 +17,7 @@ int main(){
  scanf("%d", &n1);
  
  if(n1==1){
-  std::cout << "\nOque está acontecendo...\n";
+  std::cout << "\nOque esta acontecendo...\n";
   
 }else{	
   printf("\nAgr sai daqui..\n");	
