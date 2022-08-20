@@ -17,13 +17,21 @@ void print_vector(int vetor[tam]){
  
 }
 
-void push_pile(int pilha[tam],int *topo, int random){
+void pile_push(int pilha[tam],int *topo, int random){
  if(*topo == tam - 1){
   cout << "Pilha cheia";
  }else{
   *topo+=1;
   pilha[*topo] = random;
  
+ }
+}
+
+bool pile_empty(int *topo){
+ if(*topo == -1){
+  return true;
+ }else{
+  return false;
  }
 }
 
@@ -47,17 +55,19 @@ int main(){
  scanf("%d", &random);
 
  print_vector(pilha);
- push_pile(pilha, &topo, random);
- push_pile(pilha, &topo, random);
- push_pile(pilha, &topo, random);
- push_pile(pilha, &topo, random);
- push_pile(pilha, &topo, random);
- push_pile(pilha, &topo, random);
- push_pile(pilha, &topo, random);
- push_pile(pilha, &topo, random);
- push_pile(pilha, &topo, random);
- push_pile(pilha, &topo, random);
- push_pile(pilha, &topo, random);
+  if(pile_empty(&topo)){
+   cout << "Pilha vazia..\n";
+  }
+
+ pile_push(pilha, &topo, random);
+ pile_push(pilha, &topo, random);
+ pile_push(pilha, &topo, random);
+ pile_push(pilha, &topo, random);
+ pile_push(pilha, &topo, random);
+ pile_push(pilha, &topo, random);
+ pile_push(pilha, &topo, random);
+ pile_push(pilha, &topo, random);
+ pile_push(pilha, &topo, random);
  print_vector(pilha);
  pile_pop(pilha, &topo);
  
