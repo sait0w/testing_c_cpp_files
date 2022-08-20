@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <locale.h>
 
-void main(){
+int main(){
  setlocale(LC_ALL,"");
  int n1, p1, p2 = 2, l1;
  
@@ -32,6 +32,6 @@ break;
 break;
  	
 }
- system("pause");
+ return 0;
 }
 
