@@ -1,0 +1,39 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "C/C++ Runner: Debug Session",
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "/Users/pedrosaito/Documents/code/cpp_test/files_cpp.exe",
+            "program": "/Users/pedrosaito/Documents/code/cpp_test/files_cpp.exe/build/Debug/outDebug"
+        },
+        {
+            "name": "C/C++: clang++ Compilar e depurar o arquivo ativo",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/files_cpp.exe/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "C/C++: clang++ arquivo de build ativo"
+        },
+        {
+            "name": "C/C++: gcc Compilar e depurar o arquivo ativo",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "C/C++: gcc arquivo de build ativo"
+        },
+    ]
+}
