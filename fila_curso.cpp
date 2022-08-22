@@ -77,6 +77,11 @@ int main(){
  
     fila_enfileirar(fila, 5, &tras);
     fila_enfileirar(fila, 7, &tras);
+ 
+    fila_desenfileirar(fila,&frente, tras);
+    fila_desenfileirar(fila,&frente, tras);
+    fila_desenfileirar(fila,&frente, tras);
+ 
     fila_enfileirar(fila, 8, &tras);
  
     imprime_vetor(fila, fila_tamanho(tras,frente)) ;
