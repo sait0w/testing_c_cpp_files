@@ -33,6 +33,16 @@ void add_row(int fila[tam],int valor ,int *ts){
  }
 }
 
+void remove_row(int fila[tam],int *ft,int *ts){
+ if(*ts == -1){
+  cout << "Fila vazia..";
+ }else{
+ cout << "O valor " << fila[*ft] << "foi removido. ";
+ fila[*ft] = 0;
+ ++*ft;
+ }
+}
+
 int row_size(int ft, int ts){
  return (ts - ft) + 1;
 }
@@ -46,15 +56,9 @@ int main(){
  build_fila(&ft, &ts);  //Inicializando os valores de 'ft' e 'ts'.
  add_row(fila, 5, &ts);  //'ts'= 1; fila[0] = 5;
  add_row(fila, 7, &ts);  
- add_row(fila, 8, &ts);
- add_row(fila, 8, &ts);
- add_row(fila, 8, &ts);
- add_row(fila, 8, &ts);
- add_row(fila, 8, &ts);
- add_row(fila, 8, &ts);
- add_row(fila, 8, &ts);
- add_row(fila, 8, &ts);
- add_row(fila, 8, &ts);
+ add_row(fila, 8, &ts);  //Frente inicialmente zero.
+ cout << "O tamanho da fila é: " << row_size(ft, ts);
+ remove_row(fila, &ts, &ft);
  print_row(fila);
 
  return 0;
