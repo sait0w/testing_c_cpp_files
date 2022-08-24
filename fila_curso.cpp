@@ -13,53 +13,51 @@ void imprimeVetor(int vetor[]){
     }
 }
  
-void quick_sort(int vetor[TAM], int inicio, int fim){
+void shell_sort(int vetor[TAM]){
  
-    int pivo, esq, dir, meio, aux;
+    int i, j, atual;
+    int h = 1;
  
-    //Limites da esquerda e direita da região analisada
-    esq = inicio;
-    dir = fim;
+    //De quantos em quantos será o pulo entre análises
+    while(h < TAM){
+        h = 3*h+1;
+    }
  
-    //Ajustando auxiliares do centro
-    meio =  (int) ((esq + dir) / 2);
-    pivo = vetor[meio];
+    while(h > 1){
  
+        //Reduz a distância entre as análises
+        h = h / 3;
  
-    while(dir > esq){
+        for(i = h; i < TAM; i++){
  
-        while(vetor[esq] < pivo){
-            esq = esq + 1;
-        }
+            //Elemento atual em análise
+            atual = vetor[i];
  
-        while(vetor[dir] > pivo){
-            dir = dir - 1;
-        }
+            //Elemento anterior ao analisado
+            j = i - h;
  
-        if(esq <= dir){
+            //Analisando membros anteriores
+            while( (j >=0) && (atual < vetor[j])){
  
-            //Realiza uma troca
-            aux = vetor[esq];
-            vetor[esq] = vetor[dir];
-            vetor[dir] = aux;
+                //Posiciona os elmeentos uma posição para frente
+                vetor[j + h] = vetor[j];
  
-            //Faz os limites laterais caminharem para o centro
-            esq = esq + 1;
-            dir = dir - 1;
+                //Faz o j andar para trás
+                j = j - h;
+ 
+            }
+ 
+            //Agora que o espaço foi aberto, colocamos o atual (Menor número) na posição correta
+            vetor[j + h] = atual;
+ 
+            imprimeVetor(vetor);
  
         }
  
     }
  
-    //Recursão para continuar ordenando
-    if(inicio < dir){
-        quick_sort(vetor, inicio, dir);
-    }
  
-     //Recursão para continuar ordenando
-    if(esq < fim){
-         quick_sort(vetor, esq, fim);
-    }
+ 
  
 }
  
@@ -67,7 +65,7 @@ int main(){
  
     int vetor[TAM] = {10,9,8,7,6,5,4,3,2,1};
  
-    quick_sort(vetor, 0, TAM);
+    shell_sort(vetor);
  
     imprimeVetor(vetor);
  
