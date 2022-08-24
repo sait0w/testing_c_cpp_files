@@ -14,8 +14,8 @@
             "type": "lldb",
             "request": "launch",
             "args": [],
-            "cwd": "/Users/pedrosaito/Documents/code/cpp_test/testing_c_cpp_files/repository_windows/files_cpp.exe",
-            "program": "/Users/pedrosaito/Documents/code/cpp_test/testing_c_cpp_files/repository_windows/files_cpp.exe/build/Debug/outDebug"
+            "cwd": "/Users/pedrosaito/Documents/code/cpp_test/repository_windows/files_cpp.exe",
+            "program": "/Users/pedrosaito/Documents/code/cpp_test/repository_windows/files_cpp.exe/build/Debug/outDebug"
         },
         {
             "name": "C/C++: clang++ Compilar e depurar o arquivo ativo",
