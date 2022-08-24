@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <stdlib.h>
-#define tam 10
+#define tam 10*10*10
 using namespace std;
 
 void print_vector(int v[tam]){
@@ -28,7 +28,7 @@ void shell_sort(int v[tam]){
  //De quanto será o pulo entre as análises.
  while(h<tam){
   h= 3*h + 1;
- }
+ }  //'h' = 13.
  while(h>1){
   h = h/3;
   for(i=h;i<tam;i++){
