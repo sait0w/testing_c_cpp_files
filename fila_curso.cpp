@@ -13,32 +13,52 @@ void imprimeVetor(int vetor[]){
     }
 }
  
-void insertion_sort(int vetor[TAM]){
+void quick_sort(int vetor[TAM], int inicio, int fim){
  
-    int i, j, atual;
+    int pivo, esq, dir, meio, aux;
  
-    for(i = 1; i < TAM; i++){
+    //Limites da esquerda e direita da região analisada
+    esq = inicio;
+    dir = fim;
  
-        //Elemento atual em análise
-        atual = vetor[i];
+    //Ajustando auxiliares do centro
+    meio =  (int) ((esq + dir) / 2);
+    pivo = vetor[meio];
  
-        //Elemento anterior ao analisado
-        j = i - 1;
  
-        //Analisando membros anteriores
-        while( (j >=0) && (atual < vetor[j])){
+    while(dir > esq){
  
-            //Posiciona os elmeentos uma posição para frente
-            vetor[j + 1] = vetor[j];
+        while(vetor[esq] < pivo){
+            esq = esq + 1;
+        }
  
-            //Faz o j andar para trás
-            j = j - 1;
+        while(vetor[dir] > pivo){
+            dir = dir - 1;
+        }
+ 
+        if(esq <= dir){
+ 
+            //Realiza uma troca
+            aux = vetor[esq];
+            vetor[esq] = vetor[dir];
+            vetor[dir] = aux;
+ 
+            //Faz os limites laterais caminharem para o centro
+            esq = esq + 1;
+            dir = dir - 1;
  
         }
  
-        //Agora que o espaço foi aberto, colocamos o atual (Menor número) na posição correta
-        vetor[j + 1] = atual;
+    }
  
+    //Recursão para continuar ordenando
+    if(inicio < dir){
+        quick_sort(vetor, inicio, dir);
+    }
+ 
+     //Recursão para continuar ordenando
+    if(esq < fim){
+         quick_sort(vetor, esq, fim);
     }
  
 }
@@ -47,7 +67,7 @@ int main(){
  
     int vetor[TAM] = {10,9,8,7,6,5,4,3,2,1};
  
-    insertion_sort(vetor);
+    quick_sort(vetor, 0, TAM);
  
     imprimeVetor(vetor);
  
