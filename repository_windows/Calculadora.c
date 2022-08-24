@@ -4,7 +4,7 @@
 #include <math.h>
 #define pi 3,14
 
-void main(){
+int main(){
  setlocale(LC_ALL,"");
  int a;
  double num1, num2, pt; 
@@ -69,5 +69,5 @@ system("cls");
  break;
 }
  
- system("pause");	
+ return 0;
 }

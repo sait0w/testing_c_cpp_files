@@ -6,7 +6,7 @@
 #define fi (sqrt(5)+1)/2
 #define e 2,718
 
-void main(){
+int main(){
  setlocale(LC_ALL,"");
  double a, b, c, Dlt, x1, x2, x0;
  
@@ -37,5 +37,5 @@ void main(){
  printf("\nAs ra�zes ra�zes reais da fun��o quadr�tica s�o: (%lf) (%lf)\n", x1, x2); 
  
 }
- system("pause");
+ return 0;
 } 
