@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <stdlib.h>
-#define tam 10
+#define tam 10*10
 using namespace std;
 
 void print_vector(int v[tam]){
@@ -13,7 +13,7 @@ void print_vector(int v[tam]){
 }
 
 void order(int v[tam]){
- int cont, df = 10;
+ int cont, df = tam;
   for(cont=0;cont<tam;cont++){
    v[cont] = df;
    --df;
@@ -35,11 +35,13 @@ void quick_sort(int v[tam],int in,int fin){
   --dir;
  }
  if(esq<=dir){
-  //É realizada uma troca.
+  //'v[esq]' é trocado c/'v[dir]'.
   aux = v[esq];
   v[esq] = v[dir];
   v[dir] = aux;
 
+  ++esq;
+  --dir;
   }
  }
  if(in<dir){
