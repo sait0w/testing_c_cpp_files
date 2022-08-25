@@ -16,14 +16,14 @@ void cls(){
 
 void addinit(pessoa *&pointer,int *size,string nome,int rg){
  if(*size == 0){
- pessoa *novalist = new pessoa[++*size];
+ pessoa *novalist = new pessoa[*size + 1];
  novalist[0].nome = nome;
  novalist[0].rg = rg;
 
  pointer = novalist;
  }else{
 
- pessoa *novalist = new pessoa[++*size];
+ pessoa *novalist = new pessoa[*size + 1];
  novalist[0].nome = nome;
  novalist[0].rg = rg;
  int cont;
@@ -37,7 +37,7 @@ void addinit(pessoa *&pointer,int *size,string nome,int rg){
 }
 
 void addend(pessoa *&pointer,int *size,string nome,int rg){
- pessoa *novalist = new pessoa[++*size];
+ pessoa *novalist = new pessoa[*size + 1];
  int cont;
  for(cont=0;cont<*size;cont++){
   novalist[cont].nome = pointer[cont].nome;
@@ -50,20 +50,19 @@ void addend(pessoa *&pointer,int *size,string nome,int rg){
  ++*size;
 }
 
-void print_vector(pessoa *pointer,int size){
+void print_vector(pessoa *pointer,int *size){
  int cont;
-  for(cont=0;cont<size;cont++){
+  for(cont=0;cont<*size;cont++){
    cout << cont << "- " << pointer[cont].nome << "," << pointer[cont].rg << "\n";
   }
 }
 
 int main(){
  int size = 0, iput = 1;
- struct info;
  pessoa *pointer;
 
  while(iput < 10 && iput > 0){
-  print_vector(pointer, size);
+  print_vector(pointer, &size);
         cout << "Tamanho Atual[" << size << "]\n";
         cout << "Operacoes \n";
         cout << "1 - Insercao de um node no inicio da lista \n";
