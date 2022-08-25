@@ -32,8 +32,9 @@ void addinit(pessoa *&pointer,int *size,string nome,int rg){
   novalist[cont + 1].rg = pointer[cont].rg;
   pointer = novalist;
  } 
+ } 
  ++*size;
- }
+
 }
 
 void addend(pessoa *&pointer,int *size,string nome,int rg){
@@ -47,12 +48,29 @@ void addend(pessoa *&pointer,int *size,string nome,int rg){
  novalist[*size].rg = rg;
 
  pointer = novalist;
- ++*size;
+ *size = *size + 1;
 }
 
-void print_vector(pessoa *pointer,int *size){
+void addn(pessoa *&pointer,int *size,string nome,int rg,int *posicao){
+ pessoa *novalist = new pessoa[*size + 1];
  int cont;
-  for(cont=0;cont<*size;cont++){
+ for(cont=0;cont<*posicao;cont++){
+  novalist[cont].nome = pointer[cont].nome;
+  novalist[cont].rg = pointer[cont].rg;
+ }
+ novalist[*posicao].nome = nome;
+ novalist[*posicao].rg = rg;
+ for(cont=*posicao+1;cont<*size+1;cont++){
+  novalist[cont].nome = pointer[cont-1].nome;
+  novalist[cont].rg = pointer[cont-1].rg;
+ }
+ pointer = novalist;
+ *size = *size + 1;
+}
+
+void print_vector(int size,pessoa *pointer){
+ int cont;
+  for(cont=0;cont<size;cont++){
    cout << cont << "- " << pointer[cont].nome << "," << pointer[cont].rg << "\n";
   }
 }
@@ -62,7 +80,7 @@ int main(){
  pessoa *pointer;
 
  while(iput < 10 && iput > 0){
-  print_vector(pointer, &size);
+        print_vector(size, pointer);
         cout << "Tamanho Atual[" << size << "]\n";
         cout << "Operacoes \n";
         cout << "1 - Insercao de um node no inicio da lista \n";
@@ -79,6 +97,7 @@ int main(){
   cls();
   string nome;
   int rg;
+  int posicao;
 
   switch(iput){
    case 1:
@@ -100,6 +119,23 @@ int main(){
   }else{
     addend(pointer, &size, nome, rg);
   }
+   break;
+  case 3:
+  cout << "Digite um nome:";
+  cin >> nome;
+  cout << "Digite um rg:";
+  cin >> rg;
+  cout << "Digite uma posicao:";
+  cin >> posicao;
+   if(posicao == 0){
+    addinit(pointer, &size, nome, rg);
+   }else 
+   if(posicao == size){
+    addend(pointer, &size, nome, rg);
+   }else{
+   addn(pointer, &size, nome, rg, &posicao);
+   }
+   break;
  }
 }
  return 0;
