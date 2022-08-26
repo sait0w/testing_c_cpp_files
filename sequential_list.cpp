@@ -71,14 +71,57 @@ void addn(pessoa *&pointer,int *size,string nome,int rg,int posicao){
 void removeinit(pessoa *&pointer,int *size,string nome,int rg){
  pessoa *mlist = new pessoa[*size - 1];
  int cont;
- pointer[0].nome = "0";
- pointer[0].rg = 0;
  for(cont=0;cont<*size-1;cont++){
   mlist[cont].nome = pointer[cont+1].nome;
   mlist[cont].rg = pointer[cont+1].rg;
  }
  pointer = mlist;
- ++*size;
+ --*size;
+}
+
+void removefin(pessoa *&pointer,int *size,string nome,int rg){
+ pessoa *mlist = new pessoa[*size - 1];
+ int cont;
+ for(cont=0;cont<*size-1;cont++){
+  mlist[cont].nome = pointer[cont].nome;
+  mlist[cont].rg = pointer[cont].rg;
+ }
+ pointer = mlist;
+ --*size;
+}
+
+void removen(pessoa *&pointer,int *size,string nome,int rg,int posicao){
+  pessoa *mlist = new pessoa[*size - 1];
+  int cont;
+  for(cont=0;cont<posicao;cont++){
+   mlist[cont].nome = pointer[cont].nome;
+   mlist[cont].rg = pointer[cont].rg;
+  }
+  for(cont=posicao;cont<*size-posicao;cont++){
+    mlist[cont].nome = pointer[cont+1].nome;
+    mlist[cont].rg = pointer[cont+1].rg;
+  }
+  pointer = mlist;
+  --*size;
+}
+
+void searchrg(pessoa *&pointer,int size,int rg,int posicao,string rg_nome){
+ pessoa *mlist = new pessoa[size];
+ rg_nome = "n";
+ int cont; 
+ for(cont=0;cont<size;cont++){
+  mlist[cont].rg = pointer[cont].rg;
+  if(posicao == pointer[cont].rg){
+    rg_nome = pointer[cont].nome;
+  }
+ }
+ if(rg_nome == "n"){
+  cout << "RG nao corresponde a nenhum nome..\n";
+ }else{
+  cout << "O nome correspondente e:";
+  cout << rg_nome << "\n";
+ }
+
 }
 
 void print_vector(int size,pessoa *pointer){
@@ -92,7 +135,7 @@ int main(){
  int size = 0, iput = 1;
  pessoa *pointer;
 
- while(iput < 10 && iput > 0){
+ while(iput < 9){
         print_vector(size, pointer);
         cout << "Tamanho Atual[" << size << "]\n";
         cout << "Operacoes \n";
@@ -108,6 +151,7 @@ int main(){
         cout << "\nEscolha um numero e pressione ENTER: \n";
   cin >> iput;
   cls();
+  string rg_nome;
   string nome;
   int rg;
   int posicao;
@@ -159,6 +203,30 @@ int main(){
   }else{
    removeinit(pointer, &size, nome, rg);
   }
+  break;
+  case 5:
+  cout << "Funcao escolhida: 5 - Retirar um node no fim da lista \n";
+  if(size == 0){
+   cout << "Vazio..\n";
+  }else{
+   removefin(pointer, &size, nome, rg);
+  }
+  break;
+  case 6:
+  cout << "Funcao escolhida: 6 - Retirar um node na posicao N \n";
+  cout << "Insira uma posicao:";
+  cin >> posicao;
+  if(size == 0){
+   cout << "Vazio..\n";
+  }else{
+   removen(pointer, &size, nome, rg, posicao);
+  }
+  break;
+  case 7:
+  cout << "Funcao escolhida 7 - Procurar um node com o campo RG \n";
+  cout << "Digite o rg:";
+  cin >> posicao;
+  searchrg(pointer, size, rg, posicao, rg_nome);
   break;
  }
 }
