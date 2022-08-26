@@ -32,7 +32,7 @@ void imprimeSequencial(pessoa *ponteiroSequencial,int tamanhoDaListaSequencial) 
 //Adiciona um membro ao inicio da lista
 void adcComecoSequencial(pessoa *&ponteiroSequencial,int *tamanhoDaListaSequencial,string nome,int rg){
  
-    //Caso a lista nao possua elementos, cria uma nova
+    //Caso a lis    ta nao possua elementos, cria uma nova
     if(*tamanhoDaListaSequencial == 0){
  
         //Cria uma nova lista

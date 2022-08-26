@@ -16,22 +16,22 @@ void cls(){
 
 void addinit(pessoa *&pointer,int *size,string nome,int rg){
  if(*size == 0){
- pessoa *novalist = new pessoa[*size + 1];
+ pessoa *novalist = new pessoa[1];
  novalist[0].nome = nome;
  novalist[0].rg = rg;
 
  pointer = novalist;
  }else{
 
- pessoa *novalist = new pessoa[*size + 1];
- novalist[0].nome = nome;
- novalist[0].rg = rg;
+ pessoa *cpylist = new pessoa[*size + 1];
+ cpylist[0].nome = nome;
+ cpylist[0].rg = rg;
  int cont;
  for(cont=0;cont<*size;cont++){
-  novalist[cont + 1].nome = pointer[cont].nome;
-  novalist[cont + 1].rg = pointer[cont].rg;
-  pointer = novalist;
- } 
+  cpylist[cont + 1].nome = pointer[cont].nome;
+  cpylist[cont + 1].rg = pointer[cont].rg;
+  } 
+  pointer = cpylist;
  } 
  ++*size;
 
@@ -51,21 +51,34 @@ void addend(pessoa *&pointer,int *size,string nome,int rg){
  *size = *size + 1;
 }
 
-void addn(pessoa *&pointer,int *size,string nome,int rg,int *posicao){
+void addn(pessoa *&pointer,int *size,string nome,int rg,int posicao){
  pessoa *novalist = new pessoa[*size + 1];
  int cont;
- for(cont=0;cont<*posicao;cont++){
+ for(cont=0;cont<posicao;cont++){
   novalist[cont].nome = pointer[cont].nome;
   novalist[cont].rg = pointer[cont].rg;
  }
- novalist[*posicao].nome = nome;
- novalist[*posicao].rg = rg;
- for(cont=*posicao+1;cont<*size+1;cont++){
+ novalist[posicao].nome = nome;
+ novalist[posicao].rg = rg;
+ for(cont=posicao+1;cont<*size+1;cont++){
   novalist[cont].nome = pointer[cont-1].nome;
   novalist[cont].rg = pointer[cont-1].rg;
  }
  pointer = novalist;
  *size = *size + 1;
+}
+
+void removeinit(pessoa *&pointer,int *size,string nome,int rg){
+ pessoa *mlist = new pessoa[*size - 1];
+ int cont;
+ pointer[0].nome = "0";
+ pointer[0].rg = 0;
+ for(cont=0;cont<*size-1;cont++){
+  mlist[cont].nome = pointer[cont+1].nome;
+  mlist[cont].rg = pointer[cont+1].rg;
+ }
+ pointer = mlist;
+ ++*size;
 }
 
 void print_vector(int size,pessoa *pointer){
@@ -121,21 +134,32 @@ int main(){
   }
    break;
   case 3:
+  cout << "Funcao escolhida: 3 - Insercao de um node na posicao N \n";
   cout << "Digite um nome:";
   cin >> nome;
   cout << "Digite um rg:";
   cin >> rg;
+  do{
   cout << "Digite uma posicao:";
-  cin >> posicao;
+  cin >> posicao; 
+  cls();}while(posicao <0 || posicao >size);
    if(posicao == 0){
     addinit(pointer, &size, nome, rg);
    }else 
    if(posicao == size){
     addend(pointer, &size, nome, rg);
    }else{
-   addn(pointer, &size, nome, rg, &posicao);
+   addn(pointer, &size, nome, rg, posicao);
    }
    break;
+  case 4:
+  cout << "Funcao escolhida: 4 - Retirar um node do inicio da lista \n";
+  if(size == 0){
+   cout << "Vazio..\n";
+  }else{
+   removeinit(pointer, &size, nome, rg);
+  }
+  break;
  }
 }
  return 0;
