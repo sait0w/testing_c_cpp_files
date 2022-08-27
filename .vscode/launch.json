@@ -14,8 +14,8 @@
             "type": "lldb",
             "request": "launch",
             "args": [],
-            "cwd": "/Users/pedrosaito/Documents/code/cpp_test/repository_windows/files_cpp.exe",
-            "program": "/Users/pedrosaito/Documents/code/cpp_test/repository_windows/files_cpp.exe/build/Debug/outDebug"
+            "cwd": "/Users/pedrosaito/Documents/code/cpp_test/repo_windows/files_cpp.exe",
+            "program": "/Users/pedrosaito/Documents/code/cpp_test/repo_windows/files_cpp.exe/build/Debug/outDebug"
         },
         {
             "name": "C/C++: clang++ Compilar e depurar o arquivo ativo",
@@ -43,5 +43,14 @@
             "MIMode": "lldb",
             "preLaunchTask": "C/C++: gcc arquivo de build ativo"
         },
+        {
+            "name": "C/C++ Runner: Debug Session",
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "/Users/pedrosaito/Documents/code/cpp_test/proj_/files_cpp.exe",
+            "program": "/Users/pedrosaito/Documents/code/cpp_test/proj_/files_cpp.exe/build/Debug/outDebug"
+        },
+        
     ]
 }
