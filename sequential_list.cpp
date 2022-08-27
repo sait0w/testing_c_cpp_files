@@ -150,7 +150,7 @@ int main(){
         cout << "9 - Sair do sistema. \n";
         cout << "\nEscolha um numero e pressione ENTER: \n";
   cin >> iput;
-  cls();
+  cls();  
   string rg_nome;
   string nome;
   int rg;
