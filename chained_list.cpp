@@ -26,13 +26,30 @@ int returnsize(pessoa *pointer){
  return size;
 }
 
+void addinit(pessoa *&pointer, string nome,int rg){
+ pessoa *novalist = new pessoa;
+ novalist->nome = nome;
+ novalist->rg = rg;
+ novalist->next = pointer;
+
+ pointer = novalist;
+}
+
+void print_chain(pessoa *pointer){
+ pessoa *c = pointer;
+ while(c!=NULL){
+  cout << c->nome << ", " << c->rg << endl;
+  c = c->next;
+ }
+}
+
 int main(){
  struct info;
  int size, iput = 1;
  pessoa *pointer;  //Início da lista encadeada.
  pessoa *onel = new pessoa;
  onel->nome = "Pedro";
- onel->rg = 1;
+ onel->rg = 123;
  onel->next = NULL;
  pointer = onel;
 
@@ -42,7 +59,7 @@ int main(){
  secondl->next = NULL;
  onel->next = secondl;
  while(iput < 9){
-
+  print_chain(pointer);
         cout << "Tamanho Atual[" << returnsize(pointer) << "]\n";
         cout << "Operacoes \n";
         cout << "1 - Insercao de um node no inicio da lista \n";
@@ -62,6 +79,11 @@ int main(){
   switch(iput){
     case 1:
      cout << "Funcao escolhida: 1 - Insercao de um node no inicio da lista \n";
+     cout << "Digite o nome:";
+     cin >> nome;
+     cout << "Digite o rg:";
+     cin >> rg;
+     addinit(pointer, nome, size);
     break;
     case 2:
     break;
