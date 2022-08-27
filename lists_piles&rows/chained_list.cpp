@@ -17,6 +17,9 @@ void cls(){
 
 int returnsize(pessoa *pointer){
  int size = 0;
+ if(pointer->next == NULL){
+  return 0;
+ }else{
  
  pessoa *c = pointer;
  while(c!=NULL){
@@ -24,6 +27,7 @@ int returnsize(pessoa *pointer){
   size++;
  }
  return size;
+ }
 }
 
 void addinit(pessoa *&pointer, string nome,int rg){
@@ -33,21 +37,33 @@ void addinit(pessoa *&pointer, string nome,int rg){
  novalist->next = pointer;
 
  pointer = novalist;
+ if(pointer->nome == ""){
+  novalist->next = NULL;
+ }else{
+  novalist->next = pointer;
+ }
 }
 
 void print_chain(pessoa *pointer){
+ if(pointer->next == NULL){
+  cout << "Lista vazia..\n";
+ }else{
  pessoa *c = pointer;
  while(c!=NULL){
   cout << c->nome << ", " << c->rg << endl;
   c = c->next;
  }
+ }
 }
 
 int main(){
  struct info;
- int size, iput = 1;
- pessoa *pointer;  //Início da lista encadeada.
- pessoa *onel = new pessoa;
+ int size = 0, iput = 1;
+ pessoa *pointer = new pessoa;  //Início da lista encadeada.
+ pointer->nome = "";
+ pointer->rg = 0;
+ pointer->next = NULL;
+ /*pessoa *onel = new pessoa;
  onel->nome = "Pedro";
  onel->rg = 123;
  onel->next = NULL;
@@ -57,7 +73,7 @@ int main(){
  secondl->nome = "Joao";;
  secondl->rg = 321;
  secondl->next = NULL;
- onel->next = secondl;
+ onel->next = secondl;*/
  while(iput < 9){
   print_chain(pointer);
         cout << "Tamanho Atual[" << returnsize(pointer) << "]\n";
