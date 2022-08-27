@@ -10,7 +10,7 @@ struct food{
  struct food *banana;  //Só funciona com ponteiro?
 };
 
-int main(){   //Qual a diferença entre 'food *pointer = new food;' & 'food *pointer;'.
+int main(){   //Qual a diferença entre 'struct_type *pointer = new struct_type;' & 'struct_type *pointer;'.
  food *pt = new food;
  food *pointer;
 

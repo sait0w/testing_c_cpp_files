@@ -5,28 +5,16 @@
 #include <stdlib.h>
 using namespace std; 
 
-struct estrutura{
- int num;
- struct estrutura *next;
-};
+typedef struct pessoa{
+ int rg;
+ string nome;
+}info;
+
+void cls(){
+ system("clear");
+}
 
 int main(){
- estrutura *chainpt;  //Ponteiro encadeado.
 
- estrutura *onel = new estrutura;  //Primeiro valor.       
- onel->num = 10;
- onel->num = NULL;
- chainpt = onel;
- estrutura *secondl = new estrutura;
- secondl->num = 20;
- secondl->next = NULL;
-
- chainpt->next = secondl;
-
- while(chainpt!=NULL){
-  cout << "Value: " << chainpt->num << endl;
-  chainpt = chainpt->next;
- }
-  
  return 0;
 }
