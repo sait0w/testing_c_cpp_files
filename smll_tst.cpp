@@ -10,10 +10,13 @@ struct food{
  struct food *banana;  //Só funciona com ponteiro?
 };
 
-int main(){
+int main(){   //Qual a diferença entre 'food *pointer = new food;' & 'food *pointer;'.
  food *pt = new food;
+ food *pointer;
 
  pt->banana = NULL;
  pt->cor = "Amarela";
+ pointer->banana = NULL;
+ pointer->cor = "Amarela";
  return 0;
 }

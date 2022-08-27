@@ -11,10 +11,22 @@ struct estrutura{
 };
 
 int main(){
- estrutura algo = {13, NULL};
  estrutura *chainpt;  //Ponteiro encadeado.
+
  estrutura *onel = new estrutura;  //Primeiro valor.       
- 
- 
+ onel->num = 10;
+ onel->num = NULL;
+ chainpt = onel;
+ estrutura *secondl = new estrutura;
+ secondl->num = 20;
+ secondl->next = NULL;
+
+ chainpt->next = secondl;
+
+ while(chainpt!=NULL){
+  cout << "Value: " << chainpt->num << endl;
+  chainpt = chainpt->next;
+ }
+  
  return 0;
 }
