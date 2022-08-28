@@ -17,10 +17,9 @@ void cls(){
 
 int returnsize(pessoa *pointer){
  int size = 0;
- if(pointer->next == NULL){
+ if(pointer->nome == ""){
   return 0;
  }else{
- 
  pessoa *c = pointer;
  while(c!=NULL){
   c = c->next;
@@ -37,28 +36,22 @@ void addinit(pessoa *&pointer, string nome,int rg){
  novalist->next = pointer;
 
  pointer = novalist;
- if(pointer->nome == ""){
-  novalist->next = NULL;
- }else{
-  novalist->next = pointer;
- }
 }
 
 void print_chain(pessoa *pointer){
- if(pointer->next == NULL){
-  cout << "Lista vazia..\n";
- }else{
+ int posicao = 0;
  pessoa *c = pointer;
  while(c!=NULL){
-  cout << c->nome << ", " << c->rg << endl;
+  cout << posicao << "- " << c->nome << ", " << c->rg << "\n";
   c = c->next;
- }
- }
+  posicao++;
+  }
+  free(c);
 }
 
 int main(){
  struct info;
- int size = 0, iput = 1;
+ int iput = 1;
  pessoa *pointer = new pessoa;  //Início da lista encadeada.
  pointer->nome = "";
  pointer->rg = 0;
@@ -99,7 +92,7 @@ int main(){
      cin >> nome;
      cout << "Digite o rg:";
      cin >> rg;
-     addinit(pointer, nome, size);
+     addinit(pointer, nome, rg);
     break;
     case 2:
     break;
