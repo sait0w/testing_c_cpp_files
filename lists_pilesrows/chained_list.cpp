@@ -44,12 +44,7 @@ void addend(pessoa *&pointer, string nome, int rg){
  pessoa *novalist = new pessoa;
  novalist->nome = nome;
  novalist->rg = rg;
- while(pointer!=NULL){
- if(pointer==NULL){
-  pointer->next = novalist;
-  }
-  pointer = pointer->next;
- }
+ pointer->next = novalist;
  pointer = novalist;
 }
 
