@@ -16,25 +16,40 @@ void cls(){
 }
 
 int returnsize(pessoa *pointer){
- int size = 0;
+ pessoa *c = pointer;
  if(pointer->nome == ""){
   return 0;
- }else{
- pessoa *c = pointer;
+ }
+ int size = 0;
  while(c!=NULL){
   c = c->next;
   size++;
  }
  return size;
- }
 }
 
 void addinit(pessoa *&pointer, string nome,int rg){
  pessoa *novalist = new pessoa;
  novalist->nome = nome;
  novalist->rg = rg;
- novalist->next = pointer;
+ if(pointer->nome == ""){
+  novalist->next = NULL;
+ }else{
+  novalist->next = pointer;
+ }
+ pointer = novalist;
+}
 
+void addend(pessoa *&pointer, string nome, int rg){
+ pessoa *novalist = new pessoa;
+ novalist->nome = nome;
+ novalist->rg = rg;
+ while(pointer!=NULL){
+ if(pointer==NULL){
+  pointer->next = novalist;
+  }
+  pointer = pointer->next;
+ }
  pointer = novalist;
 }
 
@@ -68,7 +83,6 @@ int main(){
  secondl->next = NULL;
  onel->next = secondl;*/
  while(iput < 9){
-  print_chain(pointer);
         cout << "Tamanho Atual[" << returnsize(pointer) << "]\n";
         cout << "Operacoes \n";
         cout << "1 - Insercao de um node no inicio da lista \n";
@@ -80,7 +94,12 @@ int main(){
         cout << "7 - Procurar um node com o campo RG \n";
         cout << "8 - Imprimir a Lista. \n";
         cout << "9 - Sair do sistema. \n";
-        cout << "\nEscolha um numero e pressione ENTER: \n";
+        cout << "\nEscolha um numero e pressione ENTER: \n"; 
+  if(returnsize(pointer) == 0){
+   cout << "Lista vazia..";
+  }else{
+   print_chain(pointer);
+  }
   cin >> iput;
   cls();
   string nome;
@@ -95,6 +114,16 @@ int main(){
      addinit(pointer, nome, rg);
     break;
     case 2:
+     cout << "Funcao escolhida: 2 - Insercao de um node no fim da lista \n";
+     cout << "Digite o nome:";
+     cin >> nome;
+     cout << "Digite o rg:";
+     cin >> rg;
+    if(returnsize(pointer) == 0){
+     addinit(pointer, nome, rg); 
+   }else{
+     addend(pointer, nome, rg);
+   }
     break;
   }
  }
