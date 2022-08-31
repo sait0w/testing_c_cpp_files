@@ -95,6 +95,10 @@ void removend(pessoa *&pointer){
   aux->next = NULL;
 }
 
+void removen(pessoa *pointer){
+ 
+}
+
 void print_chain(pessoa *pointer){
  int posicao = 0;
  pessoa *c = pointer;
@@ -198,6 +202,17 @@ int main(){
      removeinit(pointer);
      }else{
      removend(pointer);
+     }
+     break;
+     case 6:
+     cout << "Digite a posicao:";
+     cin >> posicao;
+     if(returnsize(pointer) == 0){
+      cout << "Lista vazia..";
+     }else if(returnsize(pointer) == 1){
+     removeinit(pointer);
+     }else if(posicao == returnsize(pointer)){
+     removen(pointer);
      }
   }
  }
