@@ -44,8 +44,55 @@ void addend(pessoa *&pointer, string nome, int rg){
  pessoa *novalist = new pessoa;
  novalist->nome = nome;
  novalist->rg = rg;
- pointer->next = novalist;
- pointer = novalist;
+ novalist->next = NULL;
+ pessoa *c = pointer;
+  while(c!=NULL){
+    if(c->next == NULL){  
+       c->next = novalist;   //Como que ele vai atualizar o valor na funcao principal.
+       return;
+    }
+    c = c->next;
+  }
+}
+
+void addn(pessoa *&pointer, string nome, int rg,int posicao){
+ int cont = 0;
+ pessoa *novalist = new pessoa;
+ pessoa *c = pointer;
+ novalist->nome = nome;
+ novalist->rg = rg;
+ novalist->next = NULL;
+ while(cont<=posicao){
+  if(cont==posicao-1){
+   pessoa *temp = new pessoa;
+   temp->next = c->next;
+   c->next = novalist;
+   novalist->next = temp->next;  //Programa subentende o 'pointer' e retorna a ultima variavel.
+   }
+   ++cont;
+ } 
+}
+
+void removeinit(pessoa *&pointer){
+ if(pointer->next == NULL){
+  pessoa *nova = new pessoa;
+ nova->nome = "";
+ nova->rg = 0;
+ nova->next = NULL;
+ pointer = nova;
+ }else{
+  pointer = pointer->next;
+ }
+}
+
+void removend(pessoa *&pointer){
+ pessoa *c = new pessoa;
+ pessoa *aux = new pessoa;
+  while(c->next!=NULL){
+   aux = c;
+   c = c->next;
+  }
+  aux->next = NULL;
 }
 
 void print_chain(pessoa *pointer){
@@ -99,6 +146,7 @@ int main(){
   cls();
   string nome;
   int rg; 
+  int posicao;
   switch(iput){
     case 1:
      cout << "Funcao escolhida: 1 - Insercao de um node no inicio da lista \n";
@@ -120,6 +168,37 @@ int main(){
      addend(pointer, nome, rg);
    }
     break;
+    case 3:
+     cout << "Funcao escolhida: 3 - Insercao de um node na posicao N \n";
+     cout << "Digite a posicao:";
+     cin >> posicao;
+     cout << "Digite o nome:";
+     cin >> nome;
+     cout << "Digite o rg:";
+     cin >> rg;
+     if(returnsize(pointer) == 0){
+      addinit(pointer, nome, rg);
+     }else if(posicao == returnsize(pointer)){
+      addend(pointer, nome, rg);
+     }else{
+      addn(pointer, nome, rg, posicao);
+     }
+     break;
+     case 4:
+     if(returnsize(pointer) == 0){
+      cout << "Lista vazia..";
+     }else{
+     removeinit(pointer);
+     }
+     break;
+     case 5:
+     if(returnsize(pointer) == 0){
+      cout << "Lista vazia..";
+     }else if(returnsize(pointer) == 1){
+     removeinit(pointer);
+     }else{
+     removend(pointer);
+     }
   }
  }
  return 0;

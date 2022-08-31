@@ -307,7 +307,7 @@ int main(){
  
         cout << "\nTamanho Atual[" << retornaTamanhoListaEncadeada(ponteiroEncadeada) << "]\n";
  
-        imprimeEncadeada(ponteiroEncadeada);
+                (ponteiroEncadeada);
  
         //Lê a opção
         cin >> funcaoDesejada;
