@@ -3,7 +3,7 @@
     "configurations": [
         {
             "name": "C/C++ Runner: Debug Session",
-            "type": "lldb",
+            "type": "node",
             "request": "launch",
             "args": [],
             "cwd": "/Users/pedrosaito/Documents/code/cpp_test/files_cpp.exe",
@@ -11,7 +11,7 @@
         },
         {
             "name": "C/C++ Runner: Debug Session",
-            "type": "lldb",
+            "type": "node",
             "request": "launch",
             "args": [],
             "cwd": "/Users/pedrosaito/Documents/code/cpp_test/repo_windows/files_cpp.exe",
@@ -45,7 +45,7 @@
         },
         {
             "name": "C/C++ Runner: Debug Session",
-            "type": "lldb",
+            "type": "node",
             "request": "launch",
             "args": [],
             "cwd": "/Users/pedrosaito/Documents/code/cpp_test/proj_/files_cpp.exe",
