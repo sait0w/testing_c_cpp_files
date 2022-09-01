@@ -95,8 +95,32 @@ void removend(pessoa *&pointer){
   aux->next = NULL;
 }
 
-void removen(pessoa *pointer){
- 
+void removen(pessoa *&pointer,int posicao){
+ int cont = 0;
+ pessoa *c = pointer;
+ while(cont<=posicao){
+  if(cont == posicao - 1){
+   pessoa *aux = new pessoa;
+   aux = c->next;
+   c->next = aux->next;
+   free(aux);
+  }
+  c = c->next;
+  cont++;
+ }
+}
+
+string returnrg(pessoa *&pointer,int rg){
+ string nome;
+ pessoa *c = pointer;
+  while(c!=NULL){
+   if(rg == c->rg){
+    nome = c->nome;
+    return nome;
+   }
+   c = c->next;
+  } 
+  return "nenhum";
 }
 
 void print_chain(pessoa *pointer){
@@ -209,11 +233,18 @@ int main(){
      cin >> posicao;
      if(returnsize(pointer) == 0){
       cout << "Lista vazia..";
-     }else if(returnsize(pointer) == 1){
+     }else if(posicao == returnsize(pointer) - 1){
      removeinit(pointer);
-     }else if(posicao == returnsize(pointer)){
-     removen(pointer);
+     }else{
+     removen(pointer, posicao);
      }
+     break;
+     case 7:
+     cout << "Funcao escolhida: 7 - Procurar um node com o campo RG \n";
+     cout << "Digite o RG:";
+     cin >> rg;
+     cout << "O nome correspondente eh: " << returnrg(pointer, rg) << endl;
+     break;
   }
  }
  return 0;
