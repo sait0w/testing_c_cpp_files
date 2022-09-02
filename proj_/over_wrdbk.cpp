@@ -2,17 +2,21 @@
 #include <iostream>
 using namespace std;
 
-int main(){
+string typewrd(){
  string wrd;
-
  cin >> wrd;
+ return wrd;
+}
+
+int main(){
+
  //Criar objeto de arquivo
 ofstream outputfile;  //'outputfile' é o objeto de arquivo
 
  //Abre o arquivo ou cria caso não exista
-outputfile.open("wrd_bank.txt", std::ios_base::app);  //"log.c" é o arquivo criado
+outputfile.open("wrd_bank.c", std::ios_base::app);  //"log.c" é o arquivo criado
  //Escreve algo no arquivo
-outputfile << wrd << endl;
+outputfile << typewrd() << endl;
  //Para fechar 
 outputfile.close();
 
