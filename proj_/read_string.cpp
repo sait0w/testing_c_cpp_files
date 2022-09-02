@@ -6,18 +6,19 @@ using namespace std;
 int main(){
  int cont = 0;
  //Indicar qual arquivo será lido
-ifstream input("bank.txt");
+ifstream input("bank.md");
  //String que recebe txt
-string txtlido;
+string txtlido[500];
 
  //Passa txt do arquivo p/string
  for(string line; getline(input, line);){
- txtlido += line; //Permite acrescentar 'linha por linha' ao conteúdo existente
+ txtlido[cont] += line; //Permite acrescentar 'linha por linha' ao conteúdo existente
+ cont++;
 }
 
-cout << txtlido;
-
 //Mostrar o conteúdo
-cout << txtlido;
+ for(cont=0;cont<=30;cont++){
+  cout << txtlido[cont] << endl;
+ }
 return 0;
 }
