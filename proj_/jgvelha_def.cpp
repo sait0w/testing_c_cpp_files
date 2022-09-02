@@ -15,6 +15,7 @@ int main(){
  int cvtr[3][3];
  int v[11];
  int random = 4;
+ int cont1, cont2;
  setlocale(LC_ALL,"");
  
  do{
