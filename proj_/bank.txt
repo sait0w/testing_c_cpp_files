@@ -33,8 +33,6 @@ educado
 tatu 
 noite 
 tucano
-
-
 Abacaxi
 Acerola
 Açúcar
@@ -46,7 +44,6 @@ Banana
 Baunilha
 Beterraba
 Bisteca
-Blueberry
 Bolacha
 Broa
 Castanha
