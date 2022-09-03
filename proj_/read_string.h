@@ -9,7 +9,7 @@ string random_string(){
  int cont, cont1;
  int size;
 
- ifstream input("bank.txt");
+ ifstream input("/Users/pedrosaito/Documents/code/cpp_test/proj_/bank.txt");
  string txtlido[200];
 
  for(string line; getline(input, line);){

@@ -1,5 +1,7 @@
  #include <iostream>
  #include <string>
+ #include <string.h>
+ #include <fstream>
  #include <new>
  #include "ascii_art.h"
  #include "read_string.h"
@@ -45,11 +47,11 @@ void print_letters(char v[20],int size);
  cls();
  cout << endl;
  do{
-
  print_forca();   //Imprime a arte do homem da forca
  cout << endl << endl;
  
  cout << random_string();
+ 
  cin >> res;
  cls();
  }while(res == 0);
