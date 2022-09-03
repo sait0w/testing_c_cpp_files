@@ -17,7 +17,7 @@ void cls();
  do{
  cls();
  print_dash(26);
- cout<< " Aperte 'e' p/sair ";
+ cout<< " Aperte 'n' p/sair ";
  print_dash(23);
  cout << endl;
  print_jgforca();
@@ -27,14 +27,14 @@ void cls();
  cout << "Bem-Vindo ao Jogo da Forca™!! ˆˆ\n";
  space(30);
  cout << "INSTRUÇÕES:\n" << endl;
- cout << "-> Será disponibilizada uma dica sobre a palavra.\n";
+ cout << "-> Todos os acentos foram removidos para evitar confusões .\n";
  cout << "-> O número de tentativas é número de letras + 2.\n";
  cout << "-> A mensagem \x1b[32m'correto'\x1b[0m aparecerá se acertar letra.\n";   //Alterei a cor default do txt
  cout << "-> A mensagem \x1b[31m'incorreto'\x1b[0m aparecerá se errar letra.\n";
  print_menu2();
  cout << "-> Aperte '1' se deseja prosseguir.\n";
  cin >> iput;
-  if(iput == 'e'){     //Comando 'e' p/sair do jogo
+  if(iput == 'n' || iput == 'N' || iput == 'no' || iput == 'No'){     //Comando 'e' p/sair do jogo
     cls();
     return 1;
    }
@@ -43,7 +43,8 @@ void cls();
  cout << endl;
  do{
  print_forca();
- cout << endl;
+ cout << endl << endl;
+
  
  cin >> res;
  cls();
@@ -71,3 +72,4 @@ void print_dash(int size){
 void cls(){
  system("clear");
 }
+
