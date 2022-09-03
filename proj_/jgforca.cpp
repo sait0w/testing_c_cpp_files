@@ -2,17 +2,20 @@
  #include <string>
  #include <new>
  #include "ascii_art.h"
- #include <time.h>
+ #include "read_string.h"
  using namespace std;
 
 void space(int size);
 void print_dash(int size);
 void cls();
+void print_letters(char v[20],int size);
 
  int main(){
  setlocale(LC_ALL,"Portuguese");
- char iput;
- int res = 0;
+ char v[20];
+ string iput;
+ int res = 0, size; 
+ 
 
  do{
  cls();
@@ -34,18 +37,19 @@ void cls();
  print_menu2();
  cout << "-> Aperte '1' se deseja prosseguir.\n";
  cin >> iput;
-  if(iput == 'n' || iput == 'N' || iput == 'no' || iput == 'No'){     //Comando 'e' p/sair do jogo
+  if(iput == "n" || iput == "N" || iput == "no" || iput == "No"){     //Comando 'e' p/sair do jogo
     cls();
     return 1;
    }
-  }while(iput == '0');
+  }while(iput == "0");
  cls();
  cout << endl;
  do{
- print_forca();
- cout << endl << endl;
 
+ print_forca();   //Imprime a arte do homem da forca
+ cout << endl << endl;
  
+ cout << random_string();
  cin >> res;
  cls();
  }while(res == 0);
@@ -73,3 +77,19 @@ void cls(){
  system("clear");
 }
 
+void print_letters(char v[20],int size){
+ size = 0;
+ int cont;
+ string obj = random_string();
+ char* arr;
+ arr = &obj[0];
+ while(arr[size]!=' '){
+  size++;
+ }
+ for(cont=0;cont<size;cont++){
+  v[cont] = '_';
+ }
+ for(cont=0;cont<size;cont++){
+  cout << v[cont] << " ";
+ }
+}
