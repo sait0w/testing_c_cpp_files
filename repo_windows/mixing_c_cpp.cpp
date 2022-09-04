@@ -6,7 +6,7 @@
 
 int main(){
  setlocale(LC_ALL,"");
- int n1, n2, n3;
+ int n1;
  std::string wrd;
 
  printf("Posso misturar C/C++?\n");
