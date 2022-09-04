@@ -1,3 +1,11 @@
 /.DS_Store
 /.vscode 
-/.README.md
+/README.md
+/compile_flags.txt
+/cpp_test.mk
+/cpp_test.project
+/cpp_test.workspace
+/Makefile
+/.codelite
+/.ctagsd
+/cpp_test
