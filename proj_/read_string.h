@@ -4,10 +4,10 @@
 #include <cstring>
 #include <string>
 using namespace std;
-
+     
 string random_string(){
- int cont, cont1;
- int size;
+ int cont = 0, cont1 = 0;
+ int size = 0;
 
  ifstream input("/Users/pedrosaito/Documents/code/cpp_test/proj_/bank.txt");
  string txtlido[200];

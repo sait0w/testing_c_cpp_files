@@ -5,18 +5,22 @@
  #include <new>
  #include "ascii_art.h"
  #include "read_string.h"
+ #include "print_under.cpp"
  using namespace std;
 
+void pause();
 void space(int size);
 void print_dash(int size);
 void cls();
-void print_letters(char v[20],int size);
+void print_charray(char v[20],int tam);
 
- int main(){
+int main(){
  setlocale(LC_ALL,"Portuguese");
  char v[20];
  string iput;
- int res = 0, size; 
+ int aux = 0; 
+ int posicao;
+ int tam = 1;
  
 
  do{
@@ -28,6 +32,9 @@ void print_letters(char v[20],int size);
  print_jgforca();
  print_dash(72);
  cout << endl;
+
+ /* MENU | SAUDACÕES | INSTRUÇÕES */
+
  space(20);
  cout << "Bem-Vindo ao Jogo da Forca™!! ˆˆ\n";
  space(30);
@@ -46,17 +53,43 @@ void print_letters(char v[20],int size);
   }while(iput == "0");
  cls();
  cout << endl;
- do{
- print_forca();   //Imprime a arte do homem da forca
+ pause();
+
+
+
+ /* Inseri os valores na função Int */
+
+ string temp = put_value(&tam);
+ char *resposta = &temp[0];
+ 
+ /* Initialize value of FALSE char array */
+
+ int alt = 0;
+ for(alt=0;alt<tam;alt++){
+  v[alt] = '_';
+ } 
+
+ print_charray(v, tam);
+ cout << endl;
+
+ /* Inicia-se a repetição */
+
+ while(aux < tam){
+ print_forca();   //Imprime arte do homem da forca
  cout << endl << endl;
- 
- cout << random_string();
- 
- cin >> res;
+ cout << "Selecione uma posição:" << endl;
+ print_letters(v, tam);
+ cout << tam;
+ pause();
  cls();
- }while(res == 0);
- return 0;
  }
+ 
+ pause();
+ 
+ return 0;
+}
+
+/* X------------ End of Int Main() ------------X */
 
 void space(int size){
  int cont;
@@ -79,19 +112,14 @@ void cls(){
  system("clear");
 }
 
-void print_letters(char v[20],int size){
- size = 0;
- int cont;
- string obj = random_string();
- char* arr;
- arr = &obj[0];
- while(arr[size]!=' '){
-  size++;
- }
- for(cont=0;cont<size;cont++){
-  v[cont] = '_';
- }
- for(cont=0;cont<size;cont++){
+void pause(){
+ cin.sync();
+ cin.get();
+}
+
+void print_charray(char v[20], int tam){
+ int cont = 0;
+ for(cont=0;cont<tam;cont++){
   cout << v[cont] << " ";
  }
 }
