@@ -1,7 +1,6 @@
 #include <fstream>
 #include <iostream>
 #include <time.h>
-#include <cstring>
 #include <string>
 using namespace std;
      
@@ -91,6 +90,18 @@ void print_letters(char v[20],int tam){
  }
 }
 
-void verify(char v[20], char *resposta){
- 
+int verify(char lt,char *resposta,int posicao){
+ if(lt == resposta[posicao]){
+   return 1;
+ }else{
+  return 0;
+ }
+}
+
+void right_wrong(char lt,char *resposta,int posicao){
+ if(lt == resposta[posicao]){
+  cout << "\x1b[32m'correto'\x1b[0m" << " Aperte 'ENTER'..";
+ }else{
+  cout << "\x1b[31m'incorreto'\x1b[0m" << " Aperte 'ENTER'..";
+ }
 }

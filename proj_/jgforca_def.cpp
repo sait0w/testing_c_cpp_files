@@ -21,6 +21,7 @@ int main(){
  int aux = 0; 
  int posicao;
  int tam = 1;
+ char lt;
  
 
  do{
@@ -39,7 +40,7 @@ int main(){
  cout << "Bem-Vindo ao Jogo da Forca™!! ˆˆ\n";
  space(30);
  cout << "INSTRUÇÕES:\n" << endl;
- cout << "-> Todos os acentos foram removidos para evitar confusões .\n";
+ cout << "-> Todos os acentos e letras maiúsculas foram removidos para evitar confusões .\n";
  cout << "-> O número de tentativas é número de letras + 2.\n";
  cout << "-> A mensagem \x1b[32m'correto'\x1b[0m aparecerá se acertar letra.\n";   //Alterei a cor default do txt
  cout << "-> A mensagem \x1b[31m'incorreto'\x1b[0m aparecerá se errar letra.\n";
@@ -52,7 +53,6 @@ int main(){
    }
   }while(iput == "0");
  cls();
- cout << endl;
  pause();
 
 
@@ -69,17 +69,30 @@ int main(){
   v[alt] = '_';
  } 
 
- print_charray(v, tam);
- cout << endl;
-
  /* Inicia-se a repetição */
-
- while(aux < tam){
+ int gont = tam + 2;
+ while(aux < tam && gont > 0){
  print_forca();   //Imprime arte do homem da forca
- cout << endl << endl;
- cout << "Selecione uma posição:" << endl;
+ cout << endl;
+ cout << "Selecione uma posição e o caractere, respectivamente:" << endl;
  print_letters(v, tam);
- cout << tam;
+ cout << endl;
+ cout << "->";
+ cin >> posicao;
+ cout << "->";
+ cin >> lt; 
+ int cont3 = 0;
+
+ aux += verify(lt, resposta, posicao);
+ right_wrong(lt, resposta, posicao);
+ --gont;
+ cout << "\nNúmero de tentativas restantes: " << gont;
+ for(cont3=0;cont3<tam;cont3++){
+   if(posicao == cont3 && lt == resposta[posicao]){
+    v[cont3] = lt;
+   }
+  }
+ pause();
  pause();
  cls();
  }
