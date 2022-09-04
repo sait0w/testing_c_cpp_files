@@ -1,14 +1,18 @@
+#include <fstream>
 #include <iostream>
 using namespace std;
 
-void return_num(int *pointer){
-++*pointer;
-}
-
 int main(){
- int cont = 0;
- return_num(&cont);
- cout << cont;
- return 0;
-}
+ //Criar objeto de arquivo
+ofstream outputfile;  //'outputfile' é o objeto de arquivo
+string wrd;
+cin >> wrd;
+ //Abre o arquivo ou cria caso não exista
+outputfile.open("/Users/pedrosaito/Documents/code/cpp_test/log.c", std::ios_base::app);  //"log.c" é o arquivo criado
+ //Escreve algo no arquivo
+outputfile << wrd << " " << endl;
+ //Para fechar 
+outputfile.close();
 
+return 0;
+}

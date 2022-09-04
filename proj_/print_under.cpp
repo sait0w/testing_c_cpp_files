@@ -105,3 +105,15 @@ void right_wrong(char lt,char *resposta,int posicao){
   cout << "\x1b[31m'incorreto'\x1b[0m" << " Aperte 'ENTER'..";
  }
 }
+
+void write_bank(){
+ofstream outputfile;  //'outputfile' é o objeto de arquivo
+string wrd;
+cin >> wrd;
+ //Abre o arquivo ou cria caso não exista
+outputfile.open("/Users/pedrosaito/Documents/code/cpp_test/proj_/bank.txt", std::ios_base::app);  //"log.c" é o arquivo criado
+ //Escreve algo no arquivo
+outputfile << endl << wrd << " ";
+ //Para fechar 
+outputfile.close();
+}

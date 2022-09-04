@@ -70,13 +70,14 @@ int main(){
  } 
 
  /* Inicia-se a repetição */
- int gont = tam + 2;
+ int gont = tam + (tam-3);
  while(aux < tam && gont > 0){
  print_forca();   //Imprime arte do homem da forca
  cout << endl;
  cout << "Selecione uma posição e o caractere, respectivamente:" << endl;
  print_letters(v, tam);
  cout << endl;
+ cout << temp;
  cout << "->";
  cin >> posicao;
  cout << "->";
@@ -92,11 +93,19 @@ int main(){
     v[cont3] = lt;
    }
   }
+
  pause();
  pause();
  cls();
  }
- 
+ if(aux == tam){
+ cout << endl << "Parabéns!! Você completou a palavra: ";
+ print_charray(v, tam);
+ cout << endl;
+ }
+ cout << "Para aperfeiçoar o banco de palavras que tal adicionar uma própria: ";
+ write_bank();
+
  pause();
  
  return 0;
@@ -133,6 +142,6 @@ void pause(){
 void print_charray(char v[20], int tam){
  int cont = 0;
  for(cont=0;cont<tam;cont++){
-  cout << v[cont] << " ";
+  cout << v[cont];
  }
 }

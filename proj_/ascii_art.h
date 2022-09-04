@@ -58,3 +58,15 @@ cout <<"| |         / | |  \\\n";
 cout <<"^^^^^^^^^^|_`-' `-' \"";
 
 }
+
+void georgia(){
+cout <<"   `7MMF'                                     `7MM               `7M†††¥YMM                                 " << endl;
+cout <<"     MM                                         MM                 MM    `7                                 " << endl;
+cout <<"     MM  ,pW#Wq.   .P#Ybmmm ,pW#Wq.        ,M/#bMM   ,6#Yb.        MM   d  ,pW/Wq.`7Mb,od8 ,p6/bo   ,6/Yb.  " << endl;
+cout <<"     MM 6W'   `Wb :MI  I8  6W'   `Wb     ,AP    MM  8/   MM        MM##MM 6W'   `Wb MM` `6M`  OO  8)   MM  " << endl;
+cout <<"     MM 8M     M8  WmmmP`` 8M     M8     8MI    MM   ,pm9MM        MM   Y 8M     M8 MM    8M        ,pm9MM" << endl;  
+cout <<"(O)  MM YA.   ,A9 8M       YA.   ,A9     `Mb    MM  8M   MM        MM     YA.   ,A9 MM    YM.    , 8M   MM  " << endl;
+cout <<" Ymmm9   `Ybmd9'   YMMMMMb  `Ybmd9'       `Wbmd/MML.`Moo9^Yo.    .JMML.    `Ybmd9'.JMML.   YMbmd'  `Moo9^Yo." << endl;
+cout <<"                  6'     dP                                                                                 " << endl;
+cout <<"                  Ybmmmd'                                                                                   " << endl;
+}

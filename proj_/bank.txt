@@ -52,3 +52,6 @@ pior
 certo 
 ultimo 
 proprio 
+paris 
+faculdade 
+coqueiro 
