@@ -142,7 +142,7 @@ int main(){
  pointer->rg = 0;
  pointer->next = NULL;
  /*pessoa *onel = new pessoa;
- onel->nome = "Pedro";.
+ onel->nome = "Pedro";.,
  onel->rg = 123;
  onel->next = NULL;
  pointer = onel;
