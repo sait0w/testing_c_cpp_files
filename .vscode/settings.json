@@ -97,7 +97,9 @@
     "deque": "cpp",
     "fstream": "cpp",
     "iomanip": "cpp",
-    "stack": "cpp"
+    "stack": "cpp",
+    "stdio.h": "c",
+    "stdlib.h": "c"
   },
   "C_Cpp.errorSquiggles": "Enabled"
 }
