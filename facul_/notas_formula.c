@@ -9,9 +9,10 @@ Descrição: Resolução da lista de exercícios do 5 ao 9 ;
 
 /* Exercício 5 */
 #include <stdio.h>
-#include <stdlib.h>
 #include <locale.h> /* Biblioteca "locale.h" permite a impressão de caracteres especiais. */
 
+/* Chamando a função situda após a "int main()." */
+void pause();
 
 /* Função principal não recebe argumentos. */
 int main(void)
@@ -36,11 +37,12 @@ int main(void)
         scanf("%f", &prova);
 
         /* Condicional para valores incorretos. */
-        if ((tst1 > 0) || (tst2 > 0) || (tst3 > 0) || (prova > 0))
+        if ((tst1 < 0) || (tst2 < 0) || (tst3 < 0) || (prova < 0))
         {
-            printf("Valores incorretos.. Tente novamente, aperte 'ENTER'.");
+            printf("Valores incorretos.. Tente novamente, aperte 'ENTER'.\n");
+            pause();
         }
-    } while ((tst1 > 0) || (tst2 > 0) || (tst3 > 0) || (prova > 0));
+    } while ((tst1 < 0) || (tst2 < 0) || (tst3 < 0) || (prova < 0));
 
     /* Cáculo da nota final pela forma indicada. */
     ntfinal = ((0.8 * prova) + 0.2 * ((tst1 + tst2 + tst3) / 3));
@@ -53,4 +55,11 @@ int main(void)
     printf("Nota final: %.1f\n", ntfinal);
 
     return 0;
+}
+
+void pause()
+{
+    /* Função permite "pausar" tela até identificação de caractere. */
+    getchar();
+    getchar();
 }

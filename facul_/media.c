@@ -8,7 +8,6 @@ Descrição: Cálculo da média simples entre duas notas ;
 */
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <locale.h> /* Biblioteca "locale.h" permite a impressão de caracteres especiais. */
 
 /* Chamando a função situada após a "int main()". */
@@ -33,16 +32,19 @@ int main(void)
     scanf("%f", &nt2); /* Inserção de valor decimal em nt2.*/
 
     /* Comando condicional valores incorretos. */
-    if ((nt1 < 0) || (nt2 < 0) || (nt1 > 10) || (nt2 > 10))
+    if ((nt1 < 0) || (nt2 < 0))
     {
       printf("Valores incorretos.. Tente novamente, aperte 'ENTER'.\n");
       pause();
     }
 
-  } while ((nt1 < 0) || (nt2 < 0) || (nt1 > 10) || (nt2 > 10));
+  } while ((nt1 < 0) || (nt2 < 0));
 
   /* Cálculo da média aritmética simples. */
   media = ((nt1 + nt2) / 2);
+
+  /* Imprimir média */
+  printf("\nA média do aluno é: %.1f", media);
 
   /* Verifica se a média do aluno é maior ou igual a 5. */
   if (media >= 5.)

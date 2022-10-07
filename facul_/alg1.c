@@ -21,7 +21,7 @@ int main(void)
 
     printf("A média é: %.1f\n", mediaAluno);
 
-    if(mediaAluno >= 5.0)
+    if (mediaAluno >= 5.0)
     {
         printf(" Aprovado \n");
     }

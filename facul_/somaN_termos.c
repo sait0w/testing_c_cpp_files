@@ -1,6 +1,5 @@
 /* Exercício 6 */
 #include <stdio.h>
-#include <stdlib.h>
 #include <locale.h> /* Biblioteca "locale.h" permite a impressão de caracteres especiais. */
 
 /* Chamando a função situda após a "int main()." */
